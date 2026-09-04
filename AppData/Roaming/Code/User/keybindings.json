@@ -54,6 +54,10 @@
         "command": "editor.action.sortLinesAscending"
     },
     {
+        "key": "shift+F9",
+        "command": "editor.action.sortLinesDescending"
+    },
+    {
         "key": "ctrl+shift+u",
         "command": "editor.action.transformToUppercase"
     },
