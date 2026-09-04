@@ -1,0 +1,36 @@
+# Documentation
+# https://mpv.io/manual/master/#options
+
+## GENERAL ##
+vo=gpu-next
+profile=gpu-hq
+no-border
+{{ if eq .chezmoi.hostname "xefiry-pc" -}}
+autofit-larger=90%x90%
+{{ else -}}
+autofit-larger=10%x10%
+{{ end -}}
+write-filename-in-watch-later-config
+
+## SCREENSHOT ##
+screenshot-format=png
+screenshot-directory=D:\Pictures\Screenshots
+
+## IMAGES ##
+image-display-duration=8
+
+## OSD ##
+osd-on-seek=msg-bar
+osd-playing-msg=${path}
+osd-playing-msg-duration=3000
+
+## AUDIO ##
+audio-spdif=dts-hd
+
+## SUBS ##
+sub-font-size=40
+demuxer-mkv-subtitle-preroll=yes
+demuxer-mkv-subtitle-preroll-secs=3
+
+# Don't list Image/Audio formats
+msg-level=cplayer=warn

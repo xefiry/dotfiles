@@ -1,0 +1,21 @@
+[core]
+editor = "code --wait"
+autocrlf = false
+
+[push]
+autoSetupRemote = true
+
+[diff]
+tool = winmerge
+
+[user]
+{{ if eq .chezmoi.hostname "xefiry-pc" -}}
+name = xefiry
+email = 188508735+xefiry@users.noreply.github.com
+{{ else -}}
+name = {{  keyring "chezmoi/common" "fullName" }}
+email = {{ keyring "chezmoi/common" "email" }}
+
+[credential {{ keyring "chezmoi/Git" "credential" | quote }}]
+provider = generic
+{{ end -}}

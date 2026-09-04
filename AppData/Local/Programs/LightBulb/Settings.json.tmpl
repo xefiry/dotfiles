@@ -1,0 +1,62 @@
+{
+  "IsFirstTimeExperienceEnabled": false,
+  "IsUkraineSupportMessageEnabled": false,
+  "MinimumTemperature": 500,
+  "MaximumTemperature": 20000,
+  "MinimumBrightness": 0.1,
+  "MaximumBrightness": 1,
+  "DayConfiguration": {
+    "Temperature": 5000,
+    "Brightness": 0.95
+  },
+  "NightConfiguration": {
+    "Temperature": 3500,
+    "Brightness": 0.7
+  },
+  "ConfigurationTransitionDuration": "01:00:00",
+  "ConfigurationTransitionOffset": 0,
+  "ConfigurationSmoothingMaxDuration": "00:00:05",
+  "IsManualSunriseSunsetEnabled": false,
+  "ManualSunriseTime": "07:20:00",
+  "ManualSunsetTime": "16:30:00",
+  "Location": {
+    "Latitude": {{  keyring "chezmoi/LightBulb" "latitude"  }},
+    "Longitude": {{ keyring "chezmoi/LightBulb" "longitude" }}
+  },
+  "Theme": 0,
+  "IsAutoUpdateEnabled": false,
+  "IsDefaultToDayConfigurationEnabled": false,
+  "IsConfigurationSmoothingEnabled": true,
+  "IsPauseWhenFullScreenEnabled": false,
+  "IsGammaPollingEnabled": true,
+  "IsApplicationWhitelistEnabled": false,
+  "WhitelistedApplications": null,
+  "FocusWindowHotKey": {
+    "Key": 0,
+    "Modifiers": 0
+  },
+  "ToggleHotKey": {
+    "Key": 107,
+    "Modifiers": 7
+  },
+  "IncreaseTemperatureOffsetHotKey": {
+    "Key": 0,
+    "Modifiers": 0
+  },
+  "DecreaseTemperatureOffsetHotKey": {
+    "Key": 0,
+    "Modifiers": 0
+  },
+  "IncreaseBrightnessOffsetHotKey": {
+    "Key": 0,
+    "Modifiers": 0
+  },
+  "DecreaseBrightnessOffsetHotKey": {
+    "Key": 0,
+    "Modifiers": 0
+  },
+  "ResetConfigurationOffsetHotKey": {
+    "Key": 0,
+    "Modifiers": 0
+  }
+}

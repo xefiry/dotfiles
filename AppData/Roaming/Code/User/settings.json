@@ -1,0 +1,123 @@
+/*
+Extensions list :
+    Delphi     : Pascal
+    Go         : Go
+    Groovy     : "Groovy Lint, Format and Fix"
+    Javascript : ESLint (needs a npm project with eslint installed)
+    Markdown   : Markdown All in One, markdownlint
+    Python     : Python, autoDocstring, Ruff, Flake8
+    Rust       : rust-analyzer, crates
+    Scripts    : ShellCheck, AHK++, PowerShell
+    Others     : Even Better TOML, Rainbow CSV, XML, LaTeX Workshop
+    Theme      : Material Icon Theme
+    Misc       : VIM, Unique Lines, bookmarks, Better Todo Tree, Git Graph
+*/
+{
+    ///// General settings /////
+
+    // Misc settings
+    "chat.agent.enabled": false,
+    "chat.disableAIFeatures": true,
+    "explorer.autoReveal": false,
+    "extensions.ignoreRecommendations": true,
+
+    // Security
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.restrictUNCAccess": false,
+
+    // Telemetry
+    "redhat.telemetry.enabled": false,
+    "telemetry.editStats.enabled": false,
+    "telemetry.feedback.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+    "workbench.commandPalette.experimental.enableNaturalLanguageSearch": false,
+
+    // Diff editor
+    "diffEditor.experimental.showMoves": true,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "diffEditor.renderSideBySide": true,
+
+    // GIT
+    "git.openRepositoryInParentFolders": "never",
+    "git.replaceTagsWhenPull": true,
+    "git.suggestSmartCommit": false,
+
+    // Terminal + PowerShell settings
+    "powershell.enableProfileLoading": true,
+    "powershell.integratedConsole.showOnStartup": false,
+    //"powershell.startAutomatically": false,
+    //"powershell.promptToUpdatePowerShell": false,
+    "terminal.external.windowsExec": "pwsh.exe",
+    "terminal.integrated.initialHint": false,
+
+    // Editor settings
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.fontFamily": "'Cascadia Code', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [80, 120],
+    "editor.tabSize": 2,
+
+    // Workbench settings
+    "workbench.colorTheme": "Light 2026",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.useModal": "off",
+    "workbench.editorAssociations": { "*.svg": "default" },
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.startupEditor": "newUntitledFile",
+
+    // Files settings
+    "files.autoGuessEncoding": true,
+    //"files.encoding": "windows1252",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true
+    },
+
+    // Better Todo Tree
+    "better-todo-tree.general.showActivityBarBadge": true,
+    "better-todo-tree.general.tags": [ "BUG", "HACK", "FIXME", "TODO" ],
+    "better-todo-tree.filtering.excludeGlobs": [ "**/sources/**", "node_modules" ],
+
+    ///// Language specific settings /////
+
+    "markdown.preview.scrollEditorWithPreview": false,
+    //"markdown.preview.scrollPreviewWithEditor": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+        //"editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+        "editor.wordWrap": "off"
+    },
+
+    "[pascal]": {
+        "files.autoGuessEncoding": false,
+        "files.encoding": "windows1252"
+    },
+    "pascal.tags.autoGenerate": false,
+
+    "powershell.codeFormatting.autoCorrectAliases": true,
+    "powershell.codeFormatting.useConstantStrings": true,
+
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.autoFormatStrings": true,
+    "[python]": {
+        "editor.tabSize": 4,
+        "diffEditor.ignoreTrimWhitespace": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports.ruff": "always"
+        },
+        "editor.formatOnPaste": false,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true
+    },
+    "flake8.args": [
+        "--max-line-length=120"
+    ],
+
+    "xml.server.preferBinary": true,
+    "xml.format.maxLineWidth": 200
+}

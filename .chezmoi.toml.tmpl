@@ -1,0 +1,24 @@
+[cd]
+command = "pwsh"
+args = ["-NoLogo"]
+
+[edit]
+command = "code"
+args = ["--wait"]
+
+[diff]
+command = "WinMergeU"
+args = [
+    "-s",
+    {{ printf "%q" "{{ .Destination }}" }},
+    {{ printf "%q" "{{ .Target }}" }},
+]
+
+[merge]
+command = "WinMergeU"
+args = [
+    "-s",
+    {{ printf "%q" "{{ .Destination }}" }},
+    {{ printf "%q" "{{ .Target }}" }},
+    {{ printf "%q" "{{ .Source }}" }},
+]

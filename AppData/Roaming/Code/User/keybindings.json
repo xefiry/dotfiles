@@ -1,0 +1,100 @@
+[
+    // Navigation
+    {
+        "key": "Ctrl+Tab",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "Ctrl+Shift+Tab",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "ctrl+oem_3", // ctrl + ù
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+shift+q",
+        "command": "workbench.action.toggleEditorWidths"
+    },
+    // Text compare editor
+    {
+        "key": "alt+down",
+        "command": "workbench.action.compareEditor.nextChange",
+        "when": "textCompareEditorVisible"
+    },
+    {
+        "key": "alt+f5",
+        "command": "-workbench.action.compareEditor.nextChange",
+        "when": "textCompareEditorVisible"
+    },
+    {
+        "key": "alt+up",
+        "command": "workbench.action.compareEditor.previousChange",
+        "when": "textCompareEditorVisible"
+    },
+    {
+        "key": "shift+alt+f5",
+        "command": "-workbench.action.compareEditor.previousChange",
+        "when": "textCompareEditorVisible"
+    },
+    // Edition
+    {
+        "key": "Ctrl+D",
+        "command": "editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "Ctrl+Shift+L",
+        "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "F9",
+        "command": "editor.action.sortLinesAscending"
+    },
+    {
+        "key": "ctrl+shift+u",
+        "command": "editor.action.transformToUppercase"
+    },
+    {
+        "key": "ctrl+alt+u",
+        "command": "editor.action.transformToLowercase"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-markdown.extension.editing.toggleBold",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+    },
+    // Execution
+    {
+        "key": "ctrl+alt+enter",
+        "command": "workbench.action.tasks.runTask",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "Ctrl+Enter",
+        "command": "python.execInTerminal",
+        "when": "editorTextFocus && editorLangId == 'python'"
+    },
+    {
+        "key": "Ctrl+Enter",
+        "command": "PowerShell.Debug.Start",
+        "when": "editorTextFocus && editorLangId == 'powershell'"
+    },
+    {
+        "key": "Ctrl+Enter",
+        "command": "latex-workshop.build",
+        "when": "editorTextFocus && editorLangId == 'latex'"
+    },
+    {
+        "key": "alt+enter",
+        "command": "markdown.reopenAsPreview",
+        "when": "editorTextFocus && editorLangId == 'markdown'"
+    },
+    {
+        "key": "alt+enter",
+        "command": "markdown.reopenAsSource",
+        "when": "activeEditor == 'WebviewEditor' && resourceLangId == 'markdown'"
+    }
+]

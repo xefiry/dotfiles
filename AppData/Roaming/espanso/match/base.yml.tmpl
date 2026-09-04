@@ -1,0 +1,43 @@
+global_vars:
+  - name: date1
+    type: date
+    params:
+      format: "%d/%m/%Y"
+
+  - name: date2
+    type: date
+    params:
+      format: "%Y-%m-%d"
+
+  - name: date3
+    type: date
+    params:
+      locale: "en-GB"
+
+  - name: hour
+    type: date
+    params:
+      format: "%H:%M"
+
+matches:
+  - trigger : "$me"
+    replace: {{ keyring "chezmoi/common" "fullName" | quote }}
+
+  - trigger : "$mail"
+    replace: {{ keyring "chezmoi/common" "email" | quote }}
+
+  - trigger : "$hline"
+    replace: "--------------------------------------------------"
+
+  # Dates
+  - trigger: "$dt1"
+    replace: {{ printf "%q" "{{date1}}" }}
+
+  - trigger: "$dt2"
+    replace: {{ printf "%q" "{{date2}}" }}
+
+  - trigger: "$dt3"
+    replace: {{ printf "%q" "{{date3}}" }}
+
+  - trigger: "$dth"
+    replace: {{ printf "%q" "{{date1}} {{hour}}" }}

@@ -1,0 +1,3 @@
+$filename(tsv,utf-16)Track	Title	Artist	Year	Album	Genre
+$loop(%_filename_ext%)%track%	%title%	%albumartist%	%year%	%album%	%genre%
+$loopend()

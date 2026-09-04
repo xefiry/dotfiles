@@ -1,0 +1,113 @@
+matches:
+  # Dates
+  - trigger: "$sd"
+    replace: "SYSDATE"
+
+  - trigger: "$tsd"
+    replace: "TRUNC(SYSDATE)"
+
+  - trigger: "$tr"
+    replace: "TRUNC($|$)"
+
+  - trigger: "$t="
+    replace: "TRUNC($|$) = TRUNC(SYSDATE)"
+
+  - trigger: "$td1"
+    replace: "TO_DATE('$|$', 'DD/MM/YYYY')"
+
+  - trigger: "$td2"
+    replace: "TO_DATE('$|$', 'YYYY-MM-DD')"
+
+  - trigger: "$tdh"
+    replace: "TO_DATE('$|$', 'DD/MM/YYYY HH24:MI:SS')"
+
+  - trigger: "$tc1"
+    replace: "TO_CHAR($|$, 'DD/MM/YYYY')"
+
+  - trigger: "$tc2"
+    replace: "TO_CHAR($|$, 'YYYY-MM-DD')"
+
+  - trigger: "$tch"
+    replace: "TO_CHAR($|$, 'DD/MM/YYYY HH24:MI:SS')"
+
+  # Key words
+  - trigger: "$gb"
+    replace: "GROUP BY"
+
+  - trigger: "$dis"
+    replace: "DISTINCT"
+
+  - trigger: "$ob"
+    replace: "ORDER BY"
+
+  - trigger: "$ua"
+    replace: "UNION ALL"
+
+  - trigger: "$j"
+    replace: "JOIN"
+
+  - trigger: "$lj"
+    replace: "LEFT JOIN"
+
+  - trigger: "$w"
+    replace: "WHERE"
+
+  # SELECT expressions
+  - trigger: "s*f"
+    replace: "SELECT * FROM"
+
+  - trigger: "$sfd"
+    replace: "SELECT $|$ FROM dual"
+
+  - trigger: "$scf"
+    replace: "SELECT COUNT(*) FROM"
+
+  - trigger: "$sis"
+    replace: "SELECT DISTINCT $|$ FROM"
+
+  - trigger: "$ai"
+    replace: "SELECT adhe_no_adhes FROM adhesions WHERE adhe_interne = '$|$'"
+
+  - trigger: "$adh"
+    replace: "SELECT * FROM adhesions a WHERE a."
+
+  - trigger: "$evt"
+    replace: |
+      SELECT e.even_no_evt,
+             e.even_cod_prod,   e.even_no_adhes,
+             e.even_dat_eff,    e.even_dat_val,
+             e.even_typ_evt,    e.even_cod_styp,
+             e.even_mnt_brut,   e.even_mnt_net,
+             e.even_annule,     e.even_no_annul,
+             e.even_dat_fax,    e.even_cod_fax,
+             e.even_dat_actif,  e.even_flg_actif,
+             e.even_dat_cpta,   e.even_no_extract,
+             e.even_dat_create, e.even_va_usr_create,
+             e.even_dat_update, e.even_va_usr_update
+         FROM evenements e
+       WHERE e.$|$
+
+  - trigger: "$per"
+    replace: "SELECT * FROM personnes p WHERE p.per_n_statut = 1 AND p."
+
+  # Misc expressions
+  - trigger: "$cnt"
+    replace: "COUNT(*)"
+
+  - trigger: "$hc"
+    replace: "HAVING COUNT(*) > 1"
+
+  - trigger: "$pl"
+    replace: "dbms_output.put_line($|$);"
+
+  - trigger: "$nl"
+    replace: "dbms_output.new_line;"
+
+  - trigger: "$tab"
+    replace: "-- tab ="
+
+  - trigger: "$list"
+    replace: "LISTAGG($|$, '; ') WITHIN GROUP (ORDER BY xxx)"
+
+  - trigger: "$vr"
+    replace: "pkg_parametre.so_f_val_reference_libelle('domaine_ref', 0, $|$)"

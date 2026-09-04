@@ -1,0 +1,27 @@
+/*
+Put this file in <profile_directory>/chrome
+And set toolkit.legacyUserProfileCustomizations.stylesheets to true in FireFox
+
+How to inspect UI (Source : https://firefox-source-docs.mozilla.org/devtools-user/browser_toolbox/index.html)
+ 1. Open developper tools (F12)
+ 2. Go to settings (F1 or click ... on top right corner)
+ 3. In advanced settings, check "Enable browser chrome and add-on debugging toolboxes" and "Enable remote debugging"
+ 4. Press Ctrl + Alt + Shift + I
+*/
+
+/*** Hide Tab Close buttons ***/
+.tabbrowser-tab .tab-close-button {
+  visibility: collapse !important;
+}
+
+/*** Remove 1 pixel gap on top of close window button ***/
+
+/* Remove gap on top of nav-bar */
+#nav-bar {
+  border-top: 0px !important;
+}
+
+/* But add it to a sub part of it to be able to grap window */
+#nav-bar-customization-target {
+  border-top: 0.01px var(--tabs-navbar-separator-style) var(--tabs-navbar-separator-color) !important;
+}

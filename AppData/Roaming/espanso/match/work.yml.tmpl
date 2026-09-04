@@ -1,0 +1,35 @@
+global_vars:
+  - name: "clipboard"
+    type: "clipboard"
+
+matches:
+  # Team mail
+  - trigger : "$sam"
+    replace: {{ keyring "chezmoi/Espanso" "emailTeam" | quote }}
+
+  # SVN directory
+  - trigger: "$svn"
+    replace: {{ printf "%q" "C:/SVN/{{clipboard}}"}}
+
+  # Linux Reporting path
+  - trigger: "$tdr"
+    replace: "/opt/filers/Developpement/Reportings/"
+
+  - trigger: "$tpr"
+    replace: "/opt/filers/Production/Reportings/"
+
+  # Quick replies
+  - trigger : "$cep"
+    replace: "La correction est en Production."
+
+  - trigger : "$ct1"
+    replace: "Es-tu d'accord pour clore ce ticket ?"
+
+  - trigger : "$ct2"
+    replace: "Êtes-vous d'accord pour clore ce ticket ?"
+
+  - trigger : "$ced"
+    replace: "La correction est en DEV_SAM."
+
+  - trigger : "$rpp"
+    replace: "Peux-tu me faire un retour pour passage en Production ?"
