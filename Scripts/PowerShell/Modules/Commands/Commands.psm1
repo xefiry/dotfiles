@@ -1,11 +1,9 @@
 $ScriptDir = Split-Path -parent $MyInvocation.MyCommand.Path
 if ($env:ComputerName -eq 'XEFIRY-PC') {
   . $ScriptDir/Commands_Home.ps1
-  $PYTHON_SCRIPTS = 'D:/Code/Python'
 }
 if ($env:ComputerName -eq 'PS-0568') {
   . $ScriptDir/Commands_Work.ps1
-  $PYTHON_SCRIPTS = "$env:OneDrive/fichiers_$env:UserName/Documents/Scripts/Python"
 }
 
 <#
@@ -102,7 +100,7 @@ function view_history {
   Review permissions in Firefox profiles
 #>
 function review_firefox_permissions {
-  py "$PYTHON_SCRIPTS/review_firefox_permissions.py"
+  py "$env:UserProfile/.local/share/chezmoi/Scripts/review_firefox_permissions.py"
 }
 
 <#

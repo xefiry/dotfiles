@@ -42,6 +42,9 @@ My config files managed with [chezmoi](https://www.chezmoi.io/)
 
 The Scripts directory contains a variety of shared scripts, because why not.
 
+- review_firefox_permissions.py : A Python script to list permissions used in all Firefox (and Zen) profiles
+- windows_shortcuts.ahk : An AutohHotkey script to add/redefine shortcuts on Windows
+
 ### PowerShell
 
 Scripts used for PowerShell 7 profile. To use them, create a junction between this directory to the profile directory.
