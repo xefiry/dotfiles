@@ -19,6 +19,6 @@ command = "WinMergeU"
 args = [
     "-s",
     {{ printf "%q" "{{ .Destination }}" }},
-    {{ printf "%q" "{{ .Target }}" }},
     {{ printf "%q" "{{ .Source }}" }},
+    {{ printf "%q" "{{ .Target }}" }},
 ]
