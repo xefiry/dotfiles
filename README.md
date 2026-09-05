@@ -21,22 +21,24 @@ My config files managed with [chezmoi](https://www.chezmoi.io/)
 
 ## Secrets
 
-| Name       | User       | Home/Work |
-| ---------- | ---------- | :-------: |
-| common     | fullName   |   both    |
-| common     | email      |   both    |
-| LightBulb  | Latitude   |   both    |
-| LightBulb  | Longitude  |   both    |
-| Chatterino | clientID   |   home    |
-| Chatterino | oauthToken |   home    |
-| Chatterino | userID     |   home    |
-| Chatterino | username   |   home    |
-| Espanso    | emailTeam  |   work    |
-| Git        | credential |   work    |
+| Name       | User          | Home/Work |
+| ---------- | ------------- | :-------: |
+| common     | fullName      |   both    |
+| common     | email         |   both    |
+| LightBulb  | Latitude      |   both    |
+| LightBulb  | Longitude     |   both    |
+| Chatterino | notifications |   home    |
+| Chatterino | clientID      |   home    |
+| Chatterino | clientID      |   home    |
+| Chatterino | oauthToken    |   home    |
+| Chatterino | userID        |   home    |
+| Chatterino | username      |   home    |
+| Espanso    | emailTeam     |   work    |
+| Git        | credential    |   work    |
 
-- Set : `chezmoi secret keyring set --service="chezmoi/__name__" --user="__user__" --value="__value__"`
-- Get : `chezmoi secret keyring get --service="chezmoi/__name__" --user="__user__"`
-- Del : `chezmoi secret keyring delete --service="chezmoi/__name__" --user="__user__"`
+- Set : `chezmoi secret keyring set --service='chezmoi/__name__' --user='__user__' --value='__value__'`
+- Get : `chezmoi secret keyring get --service='chezmoi/__name__' --user='__user__'`
+- Del : `chezmoi secret keyring delete --service='chezmoi/__name__' --user='__user__'`
 
 ## Scripts
 
