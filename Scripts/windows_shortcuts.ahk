@@ -9,8 +9,8 @@ SetTitleMatchMode('RegEx')
 }
 ;*/
 
-teams_exe     := "ms-teams.exe"
-teams_exp     := "^(Conversation|Équipes et canaux|Activité|Contacts|Calendar).* \| Microsoft Teams$ ahk_exe" . teams_exe
+teams_exe := "ms-teams.exe"
+teams_exp := "^(Conversation|Équipes et canaux|Activité|Contacts|Calendar).* \| Microsoft Teams$ ahk_exe" . teams_exe
 
 ; Ctrl + Left Alt + T : run Windows terminal (ignores AltGr + T)
 ^<!T:: {
@@ -63,11 +63,11 @@ teams_exp     := "^(Conversation|Équipes et canaux|Activité|Contacts|Calendar)
 ; Search key : Everything
 Browser_Search:: Run("C:\Program Files\Everything\Everything.exe")
 
-; Ctrl+Alt+F1 / Calculator key : Qalculate
+; Ctrl + Alt + F1 / Calculator key : Qalculate
 ^!F1::
 Launch_App2:: Run("qalculate-qt.exe")
 
-; Ctrl+Alt+F2 / Media player key : Freetube
+; Ctrl + Alt + F2 / Media player key : Freetube
 ^!F2::
 Launch_Media:: Run('pwsh.exe -Command "start_freetube"')
 
@@ -75,10 +75,27 @@ Launch_Media:: Run('pwsh.exe -Command "start_freetube"')
 HotIfWinActive("ahk_exe plsqldev.exe")
 Hotkey("+Escape", (_) => Send("{F13}"))
 
-; For PIP (Firefox, Freetube, ...), press Shift+T to toggle always-on-top
+; Shift + T : For PIP (Firefox, Freetube, ...), press Shift+T to toggle always-on-top
 toggle_always_on_top(x) {
     SoundBeep(440, 200)
     WinSetAlwaysOnTop -1
 }
 HotIfWinActive("Picture-in-Picture")
 Hotkey("+T", toggle_always_on_top)
+
+; Ctrl + Alt + I / Ctrl + Shift + ] : toggle PIP in Firefox (needs QWERTY layout as secondary layout)
+toggle_pip(x) {
+    ; switch to QWERTY keyboard layout
+    Send("#{Space}")
+    Sleep(75)
+
+    ; Send Ctrl + Shift + ] to toggle PIP
+    Send("^+]")
+    Sleep(75)
+
+    ; switch back to AZERTY keyboard layout
+    Send("#{Space}")
+}
+HotIfWinActive("ahk_exe firefox.exe")
+Hotkey("^!I", toggle_pip)
+Hotkey("^+]", toggle_pip)
