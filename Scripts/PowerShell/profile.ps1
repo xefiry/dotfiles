@@ -16,6 +16,9 @@ Import-Module posh-git  # https://github.com/dahlbyk/posh-git
 Import-Module Prompt
 Import-Module Commands
 
+# init chezmoi completion
+chezmoi completion powershell --output "$env:tmp/chezmoi_completion.ps1" && . "$env:tmp/chezmoi_completion.ps1"
+
 # Ctrl + D to exit
 Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
 
