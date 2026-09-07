@@ -29,7 +29,6 @@ My config files managed with [chezmoi](https://www.chezmoi.io/)
 | LightBulb  | Longitude            |   both    |
 | Chatterino | notifications/twitch |   home    |
 | Chatterino | clientID             |   home    |
-| Chatterino | clientID             |   home    |
 | Chatterino | oauthToken           |   home    |
 | Chatterino | userID               |   home    |
 | Chatterino | username             |   home    |
