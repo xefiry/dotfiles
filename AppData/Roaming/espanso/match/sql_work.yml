@@ -1,0 +1,33 @@
+matches:
+  - trigger: "$ai"
+    replace: "SELECT adhe_no_adhes FROM adhesions WHERE adhe_interne = '$|$'"
+
+  - trigger: "$adh"
+    replace: "SELECT * FROM adhesions a WHERE a."
+
+  - trigger: "$evt"
+    replace: |
+      SELECT e.even_no_evt,
+             e.even_cod_prod,   e.even_no_adhes,
+             e.even_dat_eff,    e.even_dat_val,
+             e.even_typ_evt,    e.even_cod_styp,
+             e.even_mnt_brut,   e.even_mnt_net,
+             e.even_annule,     e.even_no_annul,
+             e.even_dat_fax,    e.even_cod_fax,
+             e.even_dat_actif,  e.even_flg_actif,
+             e.even_dat_cpta,   e.even_no_extract,
+             e.even_dat_create, e.even_va_usr_create,
+             e.even_dat_update, e.even_va_usr_update
+         FROM evenements e
+       WHERE e.$|$
+
+  - trigger: "$per"
+    replace: "SELECT * FROM personnes p WHERE p.per_n_statut = 1 AND p."
+
+  - trigger: "$vr"
+    replace: "pkg_parametre.so_f_val_reference_libelle('domaine_ref', 0, $|$)"
+
+  - trigger: "$pwd"
+    replace: |
+      SELECT dbms_random.string('p', 12) AS "password"
+        FROM TABLE(sys.odcinumberlist(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)) x;
