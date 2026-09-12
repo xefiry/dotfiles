@@ -99,10 +99,18 @@ function view_history {
 
 <#
 .SYNOPSIS
-  Review permissions in Firefox profiles
+  Print permissions and serach engines on Firefox (and Zen) profiles
 #>
 function firefox_tools {
   uv run --directory "$PYTHON_SCRIPTS" python -m firefox_tools $args
+}
+
+<#
+.SYNOPSIS
+  Remove files/directories and stop processes
+#>
+function seek_and_destroy {
+  uv run --directory "$PYTHON_SCRIPTS" python -m seek_and_destroy $args
 }
 
 <#
