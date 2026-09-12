@@ -1,11 +1,11 @@
 $ScriptDir = Split-Path -parent $MyInvocation.MyCommand.Path
 if ($env:ComputerName -eq 'XEFIRY-PC') {
   . $ScriptDir/Commands_Home.ps1
-  $PYTHON_SCRIPTS = "D:/Code/xefiry/PythonScripts"
+  $PYTHON_SCRIPTS = 'D:/Code/xefiry/PythonScripts'
 }
 if ($env:ComputerName -eq 'PS-0568') {
   . $ScriptDir/Commands_Work.ps1
-  $PYTHON_SCRIPTS = "C:/GIT/xefiry/PythonScripts"
+  $PYTHON_SCRIPTS = 'C:/GIT/xefiry/PythonScripts'
 }
 
 <#
@@ -231,4 +231,21 @@ function start_open_webui {
   Set-Location $open_webui_path
 
   uvx --python 3.11 open-webui@latest serve
+}
+
+<#
+.SYNOPSIS
+  Generate chezmoi completion file
+#>
+function get_chezmoi_completion_file {
+  $file_path = "$env:tmp\chezmoi_completion.ps1"
+
+  # if the file does not exists, try to generate it
+  if (!(Test-Path -PathType Leaf -Path "$file_path")) {
+    chezmoi completion powershell --output "$env:tmp/chezmoi_completion.ps1" 2> $null
+    if (!($?)) {
+      Throw "Could not generate $file_path"
+    }
+  }
+  return $file_path
 }

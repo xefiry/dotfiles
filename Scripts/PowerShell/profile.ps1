@@ -12,14 +12,15 @@ Automatic variables : https://learn.microsoft.com/en-us/powershell/module/micros
 $Profile | Select-Object *
 #>
 
+# Ctrl + D to exit
+Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
+
 Import-Module posh-git  # https://github.com/dahlbyk/posh-git
 Import-Module Prompt
 Import-Module Commands
 
-# init chezmoi completion
-chezmoi completion powershell --output "$env:tmp/chezmoi_completion.ps1" && . "$env:tmp/chezmoi_completion.ps1"
+# Source chezmoi completion file
+try { . "$(get_chezmoi_completion_file)" } catch { Write-Error $_ }
 
-# Ctrl + D to exit
-Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
-
-Write-Host "Type 'list' to get a list of custom commands"
+Write-Host "Parent : $([System.Diagnostics.Process]::GetCurrentProcess().Parent.Name)
+Type 'list' to get a list of custom commands"
