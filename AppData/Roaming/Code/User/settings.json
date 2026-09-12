@@ -101,12 +101,9 @@ Extensions list :
 
     "powershell.codeFormatting.autoCorrectAliases": true,
     "powershell.codeFormatting.useConstantStrings": true,
-
-    "python.analysis.typeCheckingMode": "strict",
-    "python.analysis.autoFormatStrings": true,
+    
     "[python]": {
         "editor.tabSize": 4,
-        "diffEditor.ignoreTrimWhitespace": true,
         "editor.codeActionsOnSave": {
             "source.organizeImports.ruff": "always"
         },
@@ -114,9 +111,9 @@ Extensions list :
         "editor.formatOnSave": true,
         "editor.formatOnType": true
     },
-    "flake8.args": [
-        "--max-line-length=120"
-    ],
+    "flake8.args": [ "--max-line-length=120" ],
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.typeCheckingMode": "strict",
 
     "xml.server.preferBinary": true,
     "xml.format.maxLineWidth": 200
