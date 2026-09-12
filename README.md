@@ -4,20 +4,21 @@ My config files managed with [chezmoi](https://www.chezmoi.io/)
 
 ## Files
 
-| Name             | Home/Work                     | Template | Secrets |
-| ---------------- | ----------------------------- | :------: | :-----: |
-| Chatterino       | home                          |    X     |    X    |
-| Espanso          | shared (1 work specific file) |    X     |    X    |
-| Firefox          | shared                        |          |         |
-| Flameshot        | shared                        |          |         |
-| Git              | different                     |    X     |    X    |
-| Handy            | shared                        |          |         |
-| LightBulb        | shared                        |    X     |    X    |
-| Mp3tag           | home                          |          |         |
-| mpv              | different                     |    X     |         |
-| SSH              | shared                        |          |         |
-| VS Code          | shared                        |          |         |
-| Windows Terminal | different                     |    X     |         |
+| Name             | Home/Work                      | Template | Secrets |
+| ---------------- | ------------------------------ | :------: | :-----: |
+| startup.ps1      | shared                         |          |         |
+| Chatterino       | home                           |    X     |    X    |
+| Espanso          | shared (2 work specific files) |    X     |    X    |
+| Firefox          | shared                         |          |         |
+| Flameshot        | shared                         |          |         |
+| Git              | different                      |    X     |    X    |
+| Handy            | shared                         |          |         |
+| LightBulb        | shared                         |    X     |    X    |
+| Mp3tag           | home                           |          |         |
+| mpv              | different                      |    X     |         |
+| SSH              | shared                         |          |         |
+| VS Code          | shared                         |          |         |
+| Windows Terminal | different                      |    X     |         |
 
 ## Secrets
 
