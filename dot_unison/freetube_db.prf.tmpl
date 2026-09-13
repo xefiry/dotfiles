@@ -1,0 +1,10 @@
+label = Synchronize Freetube's db files between AppData and OneDrive
+root = {{ env "AppData" }}/FreeTube
+root = {{ env "OneDrive" }}/FreeTube
+ignore = Name ?*
+ignorenot = Name history.db
+ignorenot = Name playlists.db
+ignorenot = Name profiles.db
+ignorenot = Name search-history.db
+ignorenot = Name settings.db
+batch = true

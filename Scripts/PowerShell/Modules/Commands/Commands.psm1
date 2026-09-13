@@ -167,27 +167,6 @@ function mpv_stream {
 
 <#
 .SYNOPSIS
-  Synchronize FreeTube to OneDrive dir using unison
-#>
-function sync_freetube {
-  unison `
-    -ignore 'Name ?*' `
-    -ignorenot 'Name history.db' `
-    -ignorenot 'Name playlists.db' `
-    -ignorenot 'Name profiles.db' `
-    -ignorenot 'Name search-history.db' `
-    -ignorenot 'Name settings.db' `
-    -root "$env:AppData\FreeTube" `
-    -root "$env:OneDrive\FreeTube" `
-    -batch
-  #-repeat 'watch'
-  #-auto
-  #-silent
-  #-ignorenot "Name *.db" `
-}
-
-<#
-.SYNOPSIS
   Start FreeTube (if not already running) and manage file sync
 #>
 function start_freetube {
@@ -197,7 +176,7 @@ function start_freetube {
   }
 
   # sync before starting FreeTube
-  sync_freetube
+  unison freetube_db
 
   # start FreeTube
   FreeTube.exe
@@ -210,7 +189,7 @@ function start_freetube {
   Start-Sleep 2
 
   # sync again
-  sync_freetube
+  unison freetube_db
 
   Start-Sleep 5
 }
