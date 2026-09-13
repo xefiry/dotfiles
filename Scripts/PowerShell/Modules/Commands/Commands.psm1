@@ -176,7 +176,7 @@ function start_freetube {
   }
 
   # sync before starting FreeTube
-  unison freetube_db
+  unison freetube
 
   # start FreeTube
   FreeTube.exe
@@ -189,7 +189,7 @@ function start_freetube {
   Start-Sleep 2
 
   # sync again
-  unison freetube_db
+  unison freetube
 
   Start-Sleep 5
 }
