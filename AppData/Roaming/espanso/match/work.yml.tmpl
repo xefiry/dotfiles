@@ -5,7 +5,7 @@ global_vars:
 matches:
   # Team mail
   - trigger : "$sam"
-    replace: {{ keyring "chezmoi/Espanso" "emailTeam" | quote }}
+    replace: {{ .Espanso_emailTeam | quote }}
 
   # SVN directory
   - trigger: "$svn"

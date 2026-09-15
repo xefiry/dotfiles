@@ -13,9 +13,9 @@ tool = winmerge
 name = xefiry
 email = 188508735+xefiry@users.noreply.github.com
 {{ else -}}
-name = {{  keyring "chezmoi/common" "fullName" }}
-email = {{ keyring "chezmoi/common" "email" }}
+name = {{ .fullName }}
+email = {{ .email }}
 
-[credential {{ keyring "chezmoi/Git" "credential" | quote }}]
+[credential {{ .Git_credential | quote }}]
 provider = generic
 {{ end -}}

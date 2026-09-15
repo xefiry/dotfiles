@@ -586,19 +586,19 @@
     },
     "notifications": {
         "twitch": [
-{{ keyring "chezmoi/Chatterino" "notifications/twitch" }}
+            {{ .Chatterino_Notifications | replaceAllRegex ", " ",\n            " }}
         ],
         "suppressInitialLive": true,
         "enableToast": true,
         "createShortcutForToasts": false
     },
     "accounts": {
-        "current": {{ keyring "chezmoi/Chatterino" "username" | quote }},
-        "uid{{ keyring "chezmoi/Chatterino" "userID" }}": {
-            "username": {{   keyring "chezmoi/Chatterino" "username"   | quote }},
-            "userID": {{     keyring "chezmoi/Chatterino" "userID"     | quote }},
-            "clientID": {{   keyring "chezmoi/Chatterino" "clientID"   | quote }},
-            "oauthToken": {{ keyring "chezmoi/Chatterino" "oauthToken" | quote }}
+        "current": {{ .Chatterino_username | quote }},
+        "uid{{ .Chatterino_userID }}": {
+            "username": {{   .Chatterino_username   | quote }},
+            "userID": {{     .Chatterino_userID     | quote }},
+            "clientID": {{   .Chatterino_clientID   | quote }},
+            "oauthToken": {{ .Chatterino_oauthToken | quote }}
         }
     },
     "highlighting": {

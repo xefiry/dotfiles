@@ -21,10 +21,10 @@ global_vars:
 
 matches:
   - trigger : "$me"
-    replace: {{ keyring "chezmoi/common" "fullName" | quote }}
+    replace: {{ .fullName | quote }}
 
   - trigger : "$mail"
-    replace: {{ keyring "chezmoi/common" "email" | quote }}
+    replace: {{ .email | quote }}
 
   - trigger : "$hline"
     replace: "--------------------------------------------------"

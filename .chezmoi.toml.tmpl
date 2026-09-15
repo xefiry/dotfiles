@@ -22,3 +22,19 @@ args = [
     {{ printf "%q" "{{ .Source }}" }},
     {{ printf "%q" "{{ .Target }}" }},
 ]
+
+[data]
+fullName                 = "{{ promptStringOnce . "fullName"                 "Full name "                  }}"
+email                    = "{{ promptStringOnce . "email"                    "e-mail "                     }}"
+LightBulb_Latitude       = "{{ promptStringOnce . "LightBulb_Latitude"       "LightBulb - Latitude "       }}"
+LightBulb_Longitude      = "{{ promptStringOnce . "LightBulb_Longitude"      "LightBulb - Longitude "      }}"
+{{- if eq .chezmoi.hostname "xefiry-pc" }}
+Chatterino_username      = "{{ promptStringOnce . "Chatterino_username"      "Chatterino - username "      }}"
+Chatterino_userID        = "{{ promptStringOnce . "Chatterino_userID"        "Chatterino - userID "        }}"
+Chatterino_clientID      = "{{ promptStringOnce . "Chatterino_clientID"      "Chatterino - clientID "      }}"
+Chatterino_oauthToken    = "{{ promptStringOnce . "Chatterino_oauthToken"    "Chatterino - oauthToken "    }}"
+Chatterino_Notifications = '{{ promptStringOnce . "Chatterino_Notifications" "Chatterino - Notifications " }}'
+{{- else }} # work
+Espanso_emailTeam        = "{{ promptStringOnce . "Espanso_emailTeam"        "Espanso - emailTeam "        }}"
+Git_credential           = "{{ promptStringOnce . "Git_credential"           "Git - credential "           }}"
+{{- end }}
