@@ -8,33 +8,24 @@ args = ["--wait"]
 
 [diff]
 command = "WinMergeU"
-args = [
-    "-s",
-    {{ printf "%q" "{{ .Destination }}" }},
-    {{ printf "%q" "{{ .Target }}" }},
-]
+args = ["-s", "{{- "{{ .Destination }}" -}}", "{{- "{{ .Target }}" -}}"]
 
 [merge]
 command = "WinMergeU"
-args = [
-    "-s",
-    {{ printf "%q" "{{ .Destination }}" }},
-    {{ printf "%q" "{{ .Source }}" }},
-    {{ printf "%q" "{{ .Target }}" }},
-]
+args = ["-s", "{{- "{{ .Destination }}" -}}", "{{- "{{ .Source }}" -}}", "{{- "{{ .Target }}" -}}"]
 
 [data]
-fullName                 = "{{ promptStringOnce . "fullName"                 "Full name "                  }}"
-email                    = "{{ promptStringOnce . "email"                    "e-mail "                     }}"
-LightBulb_Latitude       = "{{ promptStringOnce . "LightBulb_Latitude"       "LightBulb - Latitude "       }}"
-LightBulb_Longitude      = "{{ promptStringOnce . "LightBulb_Longitude"      "LightBulb - Longitude "      }}"
+fullName = "{{                 promptStringOnce . "fullName"                 "Full name "                  }}"
+email = "{{                    promptStringOnce . "email"                    "e-mail "                     }}"
+LightBulb_Latitude = "{{       promptStringOnce . "LightBulb_Latitude"       "LightBulb - Latitude "       }}"
+LightBulb_Longitude = "{{      promptStringOnce . "LightBulb_Longitude"      "LightBulb - Longitude "      }}"
 {{- if eq .chezmoi.hostname "xefiry-pc" }}
-Chatterino_username      = "{{ promptStringOnce . "Chatterino_username"      "Chatterino - username "      }}"
-Chatterino_userID        = "{{ promptStringOnce . "Chatterino_userID"        "Chatterino - userID "        }}"
-Chatterino_clientID      = "{{ promptStringOnce . "Chatterino_clientID"      "Chatterino - clientID "      }}"
-Chatterino_oauthToken    = "{{ promptStringOnce . "Chatterino_oauthToken"    "Chatterino - oauthToken "    }}"
+Chatterino_username = "{{      promptStringOnce . "Chatterino_username"      "Chatterino - username "      }}"
+Chatterino_userID = "{{        promptStringOnce . "Chatterino_userID"        "Chatterino - userID "        }}"
+Chatterino_clientID = "{{      promptStringOnce . "Chatterino_clientID"      "Chatterino - clientID "      }}"
+Chatterino_oauthToken = "{{    promptStringOnce . "Chatterino_oauthToken"    "Chatterino - oauthToken "    }}"
 Chatterino_Notifications = '{{ promptStringOnce . "Chatterino_Notifications" "Chatterino - Notifications " }}'
 {{- else }}
-Espanso_emailTeam        = "{{ promptStringOnce . "Espanso_emailTeam"        "Espanso - emailTeam "        }}"
-Git_credential           = "{{ promptStringOnce . "Git_credential"           "Git - credential "           }}"
+Espanso_emailTeam = "{{        promptStringOnce . "Espanso_emailTeam"        "Espanso - emailTeam "        }}"
+Git_credential = "{{           promptStringOnce . "Git_credential"           "Git - credential "           }}"
 {{- end }}
