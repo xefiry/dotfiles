@@ -34,7 +34,7 @@ Chatterino_userID        = "{{ promptStringOnce . "Chatterino_userID"        "Ch
 Chatterino_clientID      = "{{ promptStringOnce . "Chatterino_clientID"      "Chatterino - clientID "      }}"
 Chatterino_oauthToken    = "{{ promptStringOnce . "Chatterino_oauthToken"    "Chatterino - oauthToken "    }}"
 Chatterino_Notifications = '{{ promptStringOnce . "Chatterino_Notifications" "Chatterino - Notifications " }}'
-{{- else }} # work
+{{- else }}
 Espanso_emailTeam        = "{{ promptStringOnce . "Espanso_emailTeam"        "Espanso - emailTeam "        }}"
 Git_credential           = "{{ promptStringOnce . "Git_credential"           "Git - credential "           }}"
 {{- end }}
