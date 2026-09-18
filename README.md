@@ -17,7 +17,7 @@ My config files managed with [chezmoi](https://www.chezmoi.io/)
 | Mp3tag           | home                           |          |       |
 | mpv              | different                      |    X     |       |
 | SSH              | shared                         |          |       |
-| Unison           | shared                         |    X     |       |
+| Unison           | shared  (1 work specific file) |    X     |       |
 | VS Code          | shared                         |          |       |
 | Windows Terminal | different                      |    X     |       |
 
