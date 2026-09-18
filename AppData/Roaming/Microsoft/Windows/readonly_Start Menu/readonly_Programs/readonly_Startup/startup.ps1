@@ -1,4 +1,5 @@
-Write-Host '>>> seek_and_destroy'
+Write-Host '
+>>> seek_and_destroy'
 seek_and_destroy
 
 Write-Host '
@@ -16,5 +17,7 @@ if ($env:ComputerName -eq 'PS-0568') {
   unison homedir
 }
 else {
+  Write-Host '
+>>> the end'
   Start-Sleep -Seconds 5
 }
