@@ -1,12 +1,20 @@
-Write-Host ">>> seek_and_destroy"
+Write-Host '>>> seek_and_destroy'
 seek_and_destroy
 
-Write-Host "
->>> chezmoi update"
+Write-Host '
+>>> chezmoi update'
 chezmoi update 2> $null
 if (!($?)) {
-  Write-Error "chezmoi update - error, restart this script"
+  Write-Error 'chezmoi update - error, run the command manually'
   Pause
-} else {
+}
+
+# for work, start homedir sync with unison
+if ($env:ComputerName -eq 'PS-0568') {
+  Write-Host '
+>>> chezmoi homedir'
+  unison homedir
+}
+else {
   Start-Sleep -Seconds 5
 }
