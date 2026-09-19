@@ -14,10 +14,12 @@ if (!($?)) {
 if ($env:ComputerName -eq 'PS-0568') {
   Write-Host '
 >>> chezmoi homedir'
-  unison homedir
+  unison homedir #TODO: make it a bacground process (see mount_OneDrive for model) + add specific log file
 }
 else {
   Write-Host '
->>> the end'
-  Start-Sleep -Seconds 5
+>>> rclone mount'
+  mount_OneDrive
 }
+
+Start-Sleep -Seconds 5

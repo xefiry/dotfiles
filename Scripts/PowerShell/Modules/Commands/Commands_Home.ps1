@@ -12,3 +12,26 @@ function GO_ColoredTest {
     Write-Host $line
   }
 }
+
+<#
+.SYNOPSIS
+  Mount OneDrive with rclone.
+  Stop it with `Stop-Process -Name rclone`
+#>
+function mount_OneDrive {
+  if (Test-Path -Path $env:OneDrive) {
+    Write-Error "Already mounted on $env:OneDrive"
+    return
+  }
+  
+  # https://rclone.org/commands/rclone_mount/
+  Start-Process -FilePath 'rclone' -ArgumentList @(
+    'mount',
+    "--log-file=$env:Tmp\rclone_OneDrivePS.log",
+    '--vfs-cache-mode=full',
+    '--vfs-cache-max-size=5GiB',
+    '--vfs-refresh',
+    '--volname=OneDrive',
+    "OneDrivePS: $env:OneDrive"
+  ) -WindowStyle Hidden
+}
