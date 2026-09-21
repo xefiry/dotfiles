@@ -2,11 +2,12 @@
 ignore = Name ~$*
 ignore = Name desktop.ini
 label = Synchronize home directories to OneDrive
+logfile = {{ env "Tmp" | replaceAllRegex "\\\\" "/" }}/unison_homedir.log
 path = Desktop
 path = Documents
 path = Downloads
 path = Links
 path = Pictures
 repeat = watch
-root = {{ env "UserProfile" }}
-root = {{ env "OneDrive" }}/Home
+root = {{ env "OneDrive" | replaceAllRegex "\\\\" "/" }}/Home
+root = {{ env "UserProfile" | replaceAllRegex "\\\\" "/" }}
