@@ -1,6 +1,7 @@
 # Unison preferences
 ignore = Name ~$*
 ignore = Name desktop.ini
+ignore = Name Modèles Office personnalisés
 label = Synchronize home directories to OneDrive
 logfile = {{ env "Tmp" | replaceAllRegex "\\\\" "/" }}/unison_homedir.log
 path = Desktop
@@ -8,6 +9,7 @@ path = Documents
 path = Downloads
 path = Links
 path = Pictures
+path = Videos
 repeat = watch
 root = {{ env "UserProfile" | replaceAllRegex "\\\\" "/" }}
 root = {{ env "OneDrive" | replaceAllRegex "\\\\" "/" }}/Home
