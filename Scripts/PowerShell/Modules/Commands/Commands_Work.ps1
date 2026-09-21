@@ -95,3 +95,19 @@ function GIT_try_boss {
   ./boss/CompileBoss.ps1 -Clean $client
   &"./boss/$client/exe/BOSS.exe" $arg1 $arg2
 }
+
+<#
+.SYNOPSIS
+  Start synchronisation of homedir with Unison.
+  Stop it with `Stop-Process -Name unison`
+#>
+function sync_homedrive {
+  $proc = $(Get-Process unison -ErrorAction SilentlyContinue)
+
+  if ($proc -and $proc.CommandLine.EndsWith(' homedir')) {
+    Write-Error "'unison homedir' is already running (PID = $($proc.id))"
+    return
+  }
+
+  Start-Process -FilePath 'unison' -ArgumentList 'homedir' -WindowStyle Hidden
+}
