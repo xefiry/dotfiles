@@ -101,7 +101,7 @@ function GIT_try_boss {
   Start synchronisation of homedir with Unison.
   Stop it with `Stop-Process -Name unison`
 #>
-function sync_homedrive {
+function sync_homedir {
   $proc = $(Get-Process unison -ErrorAction SilentlyContinue)
 
   if ($proc -and $proc.CommandLine.EndsWith(' homedir')) {

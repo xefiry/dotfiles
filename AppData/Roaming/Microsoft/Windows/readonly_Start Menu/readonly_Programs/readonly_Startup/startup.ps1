@@ -14,7 +14,7 @@ if (!($?)) {
 if ($env:ComputerName -eq 'PS-0568') {
   Write-Host '
 >>> chezmoi homedir'
-  sync_homedrive
+  sync_homedir
 }
 else {
   Write-Host '
