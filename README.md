@@ -12,7 +12,6 @@ My config files managed with [chezmoi](https://www.chezmoi.io/)
 | Firefox          | shared                         |          |       |
 | Flameshot        | shared                         |          |       |
 | Git              | different                      |    X     |   X   |
-| Handy            | shared                         |          |       |
 | LightBulb        | shared                         |    X     |   X   |
 | Mp3tag           | home                           |          |       |
 | mpv              | different                      |    X     |       |
