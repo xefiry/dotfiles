@@ -13,7 +13,7 @@ if (!($?)) {
 # for work, start homedir sync with unison
 if ($env:ComputerName -eq 'PS-0568') {
   Write-Host '
->>> chezmoi homedir'
+>>> sync_homedir'
   sync_homedir
 }
 else {
