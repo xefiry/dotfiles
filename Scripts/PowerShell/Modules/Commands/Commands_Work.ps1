@@ -42,6 +42,14 @@ function GIT_auto_rebase {
 
 <#
 .SYNOPSIS
+  Check status of TNS names, directories, sites and API availability
+#>
+function check_status {
+  uv run --directory $GIT_SCRIPTS check_status.py
+}
+
+<#
+.SYNOPSIS
   Create a log file for the commits in the current branch and open it.
   -All for all local branches.
   You can give the directories to log.
