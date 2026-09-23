@@ -6,7 +6,7 @@ My config files managed with [chezmoi](https://www.chezmoi.io/)
 
 | Name             | Home/Work                      | Template | Data  |
 | ---------------- | ------------------------------ | :------: | :---: |
-| startup.ps1      | shared                         |          |       |
+| startup.ps1      | shared                         |    X     |       |
 | Chatterino       | home                           |    X     |   X   |
 | Espanso          | shared (2 work specific files) |    X     |   X   |
 | Firefox          | shared                         |          |       |

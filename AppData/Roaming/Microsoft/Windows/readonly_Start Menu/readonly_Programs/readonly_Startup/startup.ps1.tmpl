@@ -1,3 +1,9 @@
+{{ if eq .chezmoi.hostname "xefiry-pc" }}
+Write-Host '
+>>> rclone mount'
+mount_OneDrive
+{{ end }}
+
 Write-Host '
 >>> seek_and_destroy'
 seek_and_destroy
@@ -10,16 +16,16 @@ if (!($?)) {
   Pause
 }
 
-# for work, start homedir sync with unison
-if ($env:ComputerName -eq 'PS-0568') {
-  Write-Host '
+{{ if eq .chezmoi.hostname "PS-0568" }}
+Write-Host '
 >>> sync_homedir'
-  sync_homedir
-}
-else {
-  Write-Host '
->>> rclone mount'
-  mount_OneDrive
-}
+sync_homedir
 
+Write-Host '
+>>> check_status'
+check_status
+
+Pause
+{{ else }}
 Start-Sleep -Seconds 5
+{{ end -}}
