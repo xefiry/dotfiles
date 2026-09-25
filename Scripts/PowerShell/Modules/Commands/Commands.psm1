@@ -203,13 +203,14 @@ function start_open_webui {
   param ()
 
   $open_webui_path = "$env:LocalAppData\Programs\open-webui"
-
   $env:DATA_DIR = "$open_webui_path\data"
   $env:CORS_ALLOW_ORIGIN = 'http://localhost:8080'
 
-  Set-Location $open_webui_path
+  if (-Not (Test-Path -PathType Container -Path $open_webui_path)) {
+    New-Item -ItemType Directory "$open_webui_path"
+  }
 
-  uvx --python 3.11 open-webui@latest serve
+  uvx --python 3.11 --directory "$open_webui_path" open-webui@latest serve
 }
 
 <#
