@@ -48,8 +48,6 @@ Extensions list :
     // Terminal + PowerShell settings
     "powershell.enableProfileLoading": true,
     "powershell.integratedConsole.showOnStartup": false,
-    //"powershell.startAutomatically": false,
-    //"powershell.promptToUpdatePowerShell": false,
     "terminal.external.windowsExec": "pwsh.exe",
     "terminal.integrated.initialHint": false,
 
@@ -72,7 +70,6 @@ Extensions list :
 
     // Files settings
     "files.autoGuessEncoding": true,
-    //"files.encoding": "windows1252",
     "files.exclude": {
         "**/__pycache__": true,
         "**/.pytest_cache": true
@@ -86,10 +83,8 @@ Extensions list :
     ///// Language specific settings /////
 
     "markdown.preview.scrollEditorWithPreview": false,
-    //"markdown.preview.scrollPreviewWithEditor": false,
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
-        //"editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
         "editor.wordWrap": "off"
     },
 
