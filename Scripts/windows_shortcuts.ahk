@@ -18,7 +18,7 @@ SetTitleMatchMode('RegEx')
 #+S:: Run("flameshot-cli.exe gui", , "Hide")
 
 ; Search key : Everything
-Browser_Search:: Run("C:\Program Files\Everything\Everything.exe")
+Browser_Search:: Run("Everything.exe")
 
 ; Ctrl + Alt + F1 / Calculator key : Qalculate
 ^!F1::
