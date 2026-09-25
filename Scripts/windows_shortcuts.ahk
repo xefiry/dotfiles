@@ -27,12 +27,9 @@ teams_exp := "^(Conversation|Équipes et canaux|Activité|Contacts|Calendar).* \
 ; Win + Shift + S : flameshot
 #+S:: Run("flameshot-cli.exe gui", , "Hide")
 
-; Win + C : Open teams
+; Win + C : Open teams (work only)
+#HotIf A_ComputerName = "PS-0568"
 #C:: {
-    ; this shortcut is for Work computer only
-    if (A_ComputerName != "PS-0568") {
-        return
-    }
     ; if Teams is not running or not visible, run it, and wait for it
     if not ProcessExist(teams_exe) or not WinExist(teams_exp) {
         Run(teams_exe)
@@ -44,19 +41,18 @@ teams_exp := "^(Conversation|Équipes et canaux|Activité|Contacts|Calendar).* \
     ; Maximize it
     WinMaximize(teams_exp)
 }
+#HotIf
 
-; Alt + ² : Push to talk for Teams
+; Alt + ² : Push to talk for Teams (work only)
+#HotIf A_ComputerName = "PS-0568"
 !²:: {
-    ; this shortcut is for Work computer only
-    if (A_ComputerName != "PS-0568") {
-        return
-    }
     SoundBeep(600, 200)
     Send("#!{k}")
     KeyWait("²")
     SoundBeep(440, 200)
     Send("#!{k}")
 }
+#HotIf
 
 ; https://www.autohotkey.com/docs/v2/KeyList.htm#multimedia
 
@@ -71,20 +67,22 @@ Launch_App2:: Run("qalculate-qt.exe")
 ^!F2::
 Launch_Media:: Run('pwsh.exe -Command "start_freetube"')
 
-; For PL/SL Developer, send F13 when we press Shift+Escape
-HotIfWinActive("ahk_exe plsqldev.exe")
-Hotkey("+Escape", (_) => Send("{F13}"))
+; For PL/SL Developer, send F13 when we press Shift+Escape (work only)
+#HotIf A_ComputerName = "PS-0568" and WinActive("ahk_exe plsqldev.exe")
++Escape:: Send("{F13}")
+#HotIf
 
-; Shift + T : For PIP (Firefox, Freetube, ...), press Shift+T to toggle always-on-top
-toggle_always_on_top(x) {
+; Shift + T : toggle always-on-top for PIP (Firefox, Freetube, ...)
+#HotIf WinActive("Picture-in-Picture")
++T:: {
     SoundBeep(440, 200)
     WinSetAlwaysOnTop -1
 }
-HotIfWinActive("Picture-in-Picture")
-Hotkey("+T", toggle_always_on_top)
+#HotIf
 
-; Ctrl + Alt + I / Ctrl + Shift + ] : toggle PIP in Firefox (needs QWERTY layout as secondary layout)
-toggle_pip(x) {
+; Ctrl + Alt + I : toggle PIP in Firefox (needs QWERTY layout as secondary layout)
+#HotIf WinActive("ahk_exe firefox.exe")
+^!I:: {
     ; switch to QWERTY keyboard layout
     Send("#{Space}")
     Sleep(75)
@@ -96,9 +94,7 @@ toggle_pip(x) {
     ; switch back to AZERTY keyboard layout
     Send("#{Space}")
 }
-HotIfWinActive("ahk_exe firefox.exe")
-Hotkey("^!I", toggle_pip)
-Hotkey("^+]", toggle_pip)
+#HotIf
 
 ; Get active window monitor number. If not found, returns nothing
 MonitorGetActive(win) {
@@ -172,8 +168,4 @@ loop 9 {
         Hotkey("#Numpad" . A_Index, MoveActiveWindow)
         Hotkey("^#Numpad" . A_Index, MoveActiveWindow)
     }
-}
-
-#Numpad5:: {
-    MsgBox(MonitorGetActive("A"))
 }
