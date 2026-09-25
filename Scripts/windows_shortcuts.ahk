@@ -99,3 +99,81 @@ toggle_pip(x) {
 HotIfWinActive("ahk_exe firefox.exe")
 Hotkey("^!I", toggle_pip)
 Hotkey("^+]", toggle_pip)
+
+; Get active window monitor number. If not found, returns nothing
+MonitorGetActive(win) {
+    WinGetPos(&win_x, &win_y, &win_width, &win_height, win)
+
+    center_X := win_x + win_width / 2
+    center_Y := win_y + win_height / 2
+
+    loop MonitorGetCount() {
+        MonitorGet(A_Index, &mon_Left, &mon_Top, &mon_Right, &mon_Bottom)
+        ; If the mouse is in monitor rectangle, it is in the monitor (-1 to count it in when on top left corner)
+        if center_X >= mon_Left and center_X <= mon_Right
+            and center_Y >= mon_Top and center_Y <= mon_Bottom {
+            return A_Index
+        }
+    }
+}
+
+/*
+Move the active window. If the window is maximized, does nothing.
+
+Win + Numpad : to the side/corner of the screen
+Ctrl + Win + Numpad : 1 pixel
+
+Possible directions
+  7 8 9
+  4   6
+  1 2 3
+*/
+MoveActiveWindow(shortcut) {
+    win := WinExist("A")
+
+    ; if the window is maximized, do nothing
+    if WinGetMinMax() {
+        return
+    }
+
+    mon_Active := MonitorGetActive(win)
+    MonitorGetWorkArea(mon_Active, &mon_Left, &mon_Top, &mon_Right, &mon_Bottom)
+    WinGetPos(&win_x, &win_y, &win_width, &win_height, win)
+
+    new_x := win_x
+    new_y := win_y
+
+    if shortcut = "#Numpad1" or shortcut = "#Numpad4" or shortcut = "#Numpad7" {
+        new_x := mon_Left
+    } else if shortcut = "#Numpad3" or shortcut = "#Numpad6" or shortcut = "#Numpad9" {
+        new_x := mon_Right - win_width
+    } else if shortcut = "^#Numpad1" or shortcut = "^#Numpad4" or shortcut = "^#Numpad7" {
+        new_x--
+    } else if shortcut = "^#Numpad3" or shortcut = "^#Numpad6" or shortcut = "^#Numpad9" {
+        new_x++
+    }
+
+    if shortcut = "#Numpad1" or shortcut = "#Numpad2" or shortcut = "#Numpad3" {
+        new_y := mon_Bottom - win_height
+    } else if shortcut = "#Numpad7" or shortcut = "#Numpad8" or shortcut = "#Numpad9" {
+        new_y := mon_Top
+    } else if shortcut = "^#Numpad1" or shortcut = "^#Numpad2" or shortcut = "^#Numpad3" {
+        new_y++
+    } else if shortcut = "^#Numpad7" or shortcut = "^#Numpad8" or shortcut = "^#Numpad9" {
+        new_y--
+    }
+
+    WinMove(new_x, new_y, win_width, win_height, win)
+}
+
+; initialize shortcuts : Win + Numpad / Ctrl + Win + Numpad
+loop 9 {
+    if A_Index != 5 { ; don't initialize for Numpad5
+        Hotkey("#Numpad" . A_Index, MoveActiveWindow)
+        Hotkey("^#Numpad" . A_Index, MoveActiveWindow)
+    }
+}
+
+#Numpad5:: {
+    MsgBox(MonitorGetActive("A"))
+}
