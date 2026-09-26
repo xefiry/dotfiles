@@ -1,31 +1,39 @@
-{{ if eq .chezmoi.hostname "xefiry-pc" }}
-Write-Host '
->>> rclone mount'
-mount_OneDrive
-{{ end }}
+function p() {
+  Write-Host "
+>>> $($args[0])"
+}
 
-Write-Host '
->>> seek_and_destroy'
+{{- if eq .chezmoi.hostname "xefiry-pc" }}
+
+p 'rclone mount'
+mount_OneDrive
+Start-Sleep -Seconds 5
+
+{{- end }}
+
+p 'seek_and_destroy'
 seek_and_destroy
 
-Write-Host '
->>> chezmoi update'
+p 'unison freetube'
+unison freetube
+
+p 'chezmoi update'
 chezmoi update 2> $null
 if (!($?)) {
   Write-Error 'chezmoi update - error, run the command manually'
   Pause
 }
 
-{{ if eq .chezmoi.hostname "PS-0568" }}
-Write-Host '
->>> sync_homedir'
+{{- if eq .chezmoi.hostname "PS-0568" }}
+
+p 'sync_homedir'
 sync_homedir
 
-Write-Host '
->>> check_status'
+p 'check_status'
 check_status
 
 Pause
 {{ else }}
+
 Start-Sleep -Seconds 5
 {{ end -}}
