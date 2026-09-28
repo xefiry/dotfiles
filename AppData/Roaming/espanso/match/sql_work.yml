@@ -19,7 +19,9 @@ matches:
              e.even_dat_create, e.even_va_usr_create,
              e.even_dat_update, e.even_va_usr_update
          FROM evenements e
-       WHERE e.$|$
+       WHERE e.even_annule IS NULL
+             AND NULLIF(e.even_no_annul, 0) IS NULL
+             AND e.$|$
 
   - trigger: "$per"
     replace: "SELECT * FROM personnes p WHERE p.per_n_statut = 1 AND p."
