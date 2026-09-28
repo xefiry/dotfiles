@@ -31,9 +31,11 @@ sync_homedir
 
 p 'check_status'
 check_status
+if ($LASTEXITCODE -ne 0) {
+  Write-Error 'check_status - error'
+  Pause
+}
 
-Pause
-{{ else }}
+{{- end }}
 
 Start-Sleep -Seconds 5
-{{ end -}}
