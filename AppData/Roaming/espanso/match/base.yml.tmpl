@@ -41,3 +41,14 @@ matches:
 
   - trigger: "$dth"
     replace: {{ printf "%q" "{{date1}} {{hour}}" }}
+
+  - trigger: "$doc"
+    replace: |
+      /********CREATION********************
+      **   @Author   : {{ .fullName }}
+      **   @Date     : {{ "{{date1}}" }}
+      **   @Info     : $|$
+      **   @Param    : 
+      **   @Return   : 
+      **   @Version  : 1
+      *************************************/
