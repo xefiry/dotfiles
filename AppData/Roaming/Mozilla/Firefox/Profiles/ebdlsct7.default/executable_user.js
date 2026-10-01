@@ -94,7 +94,7 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("signon.generation.enabled", false);
 
 // Disable peer connection
-//user_pref("media.peerconnection.enabled", false);  // Disable for Discord calls
+user_pref("media.peerconnection.enabled", false);
 
 // Disable media controls overlay
 //user_pref("media.hardwaremediakeys.enabled", false);
