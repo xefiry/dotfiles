@@ -20,6 +20,7 @@ Extensions list :
     "chat.disableAIFeatures": true,
     "explorer.autoReveal": false,
     "extensions.ignoreRecommendations": true,
+    "search.quickOpen.includeHistory": false,
 
     // Security
     "security.workspace.trust.enabled": false,
