@@ -586,7 +586,7 @@
     },
     "notifications": {
         "twitch": [
-            {{ .Chatterino_Notifications | replaceAllRegex ", " ",\n            " }}
+            {{ .Chatterino_Notifications | replace ", " ",\n            " }}
         ],
         "suppressInitialLive": true,
         "enableToast": true,
