@@ -19,7 +19,12 @@ user_pref("sidebar.verticalTabs", true);
 user_pref("browser.toolbars.bookmarks.visibility", "always");
 
 // Backup
+{{- if eq .chezmoi.hostname "xefiry-pc" }}
 user_pref("browser.backup.location", "D:\\Documents\\etc\\Restore Firefox");
+{{ else }}
+user_pref("browser.backup.location", "{{ env "UserProfile" | replace "\\" "\\\\" }}\\Documents\\etc\\Restore Firefox");
+{{ end -}}
+
 user_pref("browser.backup.scheduled.enabled", true);
 
 // Enable use of userChrome.css
@@ -69,7 +74,7 @@ user_pref("browser.download.useDownloadDir", false);
 
 // Save files to
 user_pref("browser.download.folderList", 2);
-user_pref("browser.download.dir", "C:\\Users\\xefiry\\AppData\\Local\\Temp");
+user_pref("browser.download.dir", {{ env "Tmp" | quote }});
 
 // Ask whether to open or save files
 user_pref("browser.download.always_ask_before_handling_new_types", true);
