@@ -82,7 +82,7 @@ Extensions list :
     "better-todo-tree.filtering.excludeGlobs": [ "**/sources/**", "node_modules" ],
 
     // Highlight Bad Chars
-    "highlight-bad-chars.additionalUnicodeChars": [ "’", "“", "”" ],
+    "highlight-bad-chars.additionalUnicodeChars": [ "â€™" ],
 
     ///// Language specific settings /////
 
