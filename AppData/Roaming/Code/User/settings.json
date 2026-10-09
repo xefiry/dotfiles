@@ -10,7 +10,7 @@ Extensions list :
     Scripts    : ShellCheck, AHK++, PowerShell
     Others     : Even Better TOML, Rainbow CSV, XML, LaTeX Workshop
     Theme      : Material Icon Theme
-    Misc       : VIM, Unique Lines, bookmarks, Better Todo Tree, Git Graph
+    Misc       : Unique Lines, bookmarks, Better Todo Tree, Git Graph, Highlight Bad Chars
 */
 {
     ///// General settings /////
@@ -80,6 +80,9 @@ Extensions list :
     "better-todo-tree.general.showActivityBarBadge": true,
     "better-todo-tree.general.tags": [ "BUG", "HACK", "FIXME", "TODO" ],
     "better-todo-tree.filtering.excludeGlobs": [ "**/sources/**", "node_modules" ],
+
+    // Highlight Bad Chars
+    "highlight-bad-chars.additionalUnicodeChars": [ "’", "“", "”" ],
 
     ///// Language specific settings /////
 
