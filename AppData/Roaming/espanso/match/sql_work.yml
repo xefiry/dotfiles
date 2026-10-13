@@ -21,7 +21,15 @@ matches:
          FROM evenements e
        WHERE e.even_annule IS NULL
              AND NULLIF(e.even_no_annul, 0) IS NULL
-             AND e.$|$
+             AND e.$|$;
+
+  - trigger: "$uevt"
+    replace: |
+      UPDATE evenements e
+        SET $|$
+            e.even_va_usr_update = 'SAM-XXXX',
+            e.even_dat_update    = SYSDATE
+      WHERE e.;
 
   - trigger: "$per"
     replace: "SELECT * FROM personnes p WHERE p.per_n_statut = 1 AND p."
