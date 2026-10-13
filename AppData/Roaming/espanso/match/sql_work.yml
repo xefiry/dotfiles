@@ -5,7 +5,7 @@ matches:
   - trigger: "$adh"
     replace: "SELECT * FROM adhesions a WHERE a."
 
-  - trigger: "$evt"
+  - trigger: "$evt1"
     replace: |
       SELECT e.even_no_evt,
              e.even_cod_prod,   e.even_no_adhes,
@@ -23,7 +23,22 @@ matches:
              AND NULLIF(e.even_no_annul, 0) IS NULL
              AND e.$|$;
 
-  - trigger: "$uevt"
+  - trigger: "$evt2"
+    replace: |
+      SELECT e.even_no_adhes   AS "N° adhésion",
+             e.even_no_evt     AS "N° évènement",
+             e.even_dat_eff    AS "Date effet",
+             e.even_typ_evt    AS "Type évènement",
+             e.even_cod_styp   AS "Sous-Type évènement",
+             e.even_mnt_brut   AS "Brut",
+             e.even_mnt_net    AS "Net",
+             e.even_dat_create AS "Date création"
+         FROM evenements e
+       WHERE e.even_annule IS NULL
+             AND NULLIF(e.even_no_annul, 0) IS NULL
+             AND e.$|$;
+
+  - trigger: "$evtu"
     replace: |
       UPDATE evenements e
         SET $|$
