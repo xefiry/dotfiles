@@ -1,0 +1,13 @@
+{
+  "Markdown table": {
+    "prefix": "table",
+    "body": [
+      "|     |     |     |",
+      "| --- | --- | --- |",
+      "|     |     |     |",
+      "|     |     |     |",
+      "|     |     |     |",
+    ],
+    "description": "A 3x3 table"
+  }
+}
