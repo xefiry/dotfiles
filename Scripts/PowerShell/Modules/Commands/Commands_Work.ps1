@@ -18,10 +18,18 @@ function get_boss_params {
 
 <#
 .SYNOPSIS
+  Generate a password for BOSS
+#>
+function generate_password {
+  uv run --directory $GIT_SCRIPTS generate_password.py $args
+}
+
+<#
+.SYNOPSIS
   Opens ticket found in the branch name
 #>
 function open_branch_ticket {
-  uv run "$GIT_SCRIPTS/open_branch_ticket.py" $args
+  uv run --directory $GIT_SCRIPTS open_branch_ticket.py $args
 }
 
 <#
