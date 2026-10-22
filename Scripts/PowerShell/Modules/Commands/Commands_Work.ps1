@@ -29,7 +29,8 @@ function generate_password {
   Opens ticket found in the branch name
 #>
 function open_branch_ticket {
-  uv run --directory $GIT_SCRIPTS open_branch_ticket.py $args
+  # don't use --directory to keep current working dir
+  uv run "$GIT_SCRIPTS/open_branch_ticket.py" $args
 }
 
 <#
