@@ -9,6 +9,11 @@ p 'rclone mount'
 mount_OneDrive
 Start-Sleep -Seconds 5
 
+{{- else }}
+
+p 'sync_homedir'
+sync_homedir
+
 {{- end }}
 
 p 'seek_and_destroy'
@@ -25,9 +30,6 @@ if (!($?)) {
 }
 
 {{- if eq .chezmoi.hostname "PS-0568" }}
-
-p 'sync_homedir'
-sync_homedir
 
 p 'check_status'
 check_status
