@@ -48,11 +48,6 @@ Launch_Media:: Run('pwsh.exe -Command "start_freetube"')
 +T:: toggle_stay_on_top()
 #HotIf
 
-; Ctrl + Alt + I : toggle PIP in Firefox (needs QWERTY layout as secondary layout)
-#HotIf WinActive("ahk_exe firefox.exe")
-^!I:: toggle_PIP()
-#HotIf
-
 ; Win + Numpad / Ctrl + Win + Numpad : MoveActiveWindow (see function documentation)
 loop 9 {
     if A_Index != 5 { ; don't initialize for Numpad5
