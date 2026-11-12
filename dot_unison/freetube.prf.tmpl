@@ -7,6 +7,12 @@ ignorenot = Name profiles.db
 ignorenot = Name search-history.db
 ignorenot = Name settings.db
 label = Synchronize Freetube's db files to OneDrive
+{{ if eq .chezmoi.hostname "home-pc" -}}
+logfile = /tmp/unison_freetube.log
+root = {{ env "HOME" }}/.var/app/io.freetubeapp.FreeTube/config/FreeTube/
+root = {{ env "HOME" }}/OneDrive/FreeTube
+{{ else -}}
 logfile = {{ env "Tmp" | replace "\\" "/" }}/unison_freetube.log
 root = {{ env "AppData" | replace "\\" "/" }}/FreeTube
 root = {{ env "OneDrive" | replace "\\" "/" }}/FreeTube
+{{ end -}}

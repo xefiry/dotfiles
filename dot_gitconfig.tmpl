@@ -1,5 +1,9 @@
 [core]
+{{ if eq .chezmoi.hostname "home-pc" -}}
+editor = "flatpak run com.vscodium.codium --wait"
+{{ else -}}
 editor = "code --wait"
+{{ end -}}
 autocrlf = false
 
 [push]
@@ -9,7 +13,7 @@ autoSetupRemote = true
 tool = winmerge
 
 [user]
-{{ if eq .chezmoi.hostname "xefiry-pc" -}}
+{{ if eq .chezmoi.hostname "home-pc" -}}
 name = xefiry
 email = 188508735+xefiry@users.noreply.github.com
 {{ else -}}

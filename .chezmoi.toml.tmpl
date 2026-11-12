@@ -1,3 +1,12 @@
+{{- if eq .chezmoi.hostname "home-pc" -}}
+[diff]
+command = "flatpak"
+args = ["run", "org.gnome.meld", "--diff", "{{- "{{ .Destination }}" -}}", "{{- "{{ .Target }}" -}}"]
+
+[merge]
+command = "flatpak"
+args = ["run", "org.gnome.meld", "--diff", "{{- "{{ .Destination }}" -}}", "{{- "{{ .Source }}" -}}", "{{- "{{ .Target }}" -}}"]
+{{- else -}}
 [cd]
 command = "pwsh"
 args = ["-NoLogo"]
@@ -13,13 +22,12 @@ args = ["-s", "{{- "{{ .Destination }}" -}}", "{{- "{{ .Target }}" -}}"]
 [merge]
 command = "WinMergeU"
 args = ["-s", "{{- "{{ .Destination }}" -}}", "{{- "{{ .Source }}" -}}", "{{- "{{ .Target }}" -}}"]
+{{- end }}
 
 [data]
 fullName = "{{                 promptStringOnce . "fullName"                 "Full name "                  }}"
 email = "{{                    promptStringOnce . "email"                    "e-mail "                     }}"
-LightBulb_Latitude = "{{       promptStringOnce . "LightBulb_Latitude"       "LightBulb - Latitude "       }}"
-LightBulb_Longitude = "{{      promptStringOnce . "LightBulb_Longitude"      "LightBulb - Longitude "      }}"
-{{- if eq .chezmoi.hostname "xefiry-pc" }}
+{{- if eq .chezmoi.hostname "home-pc" }}
 Chatterino_username = "{{      promptStringOnce . "Chatterino_username"      "Chatterino - username "      }}"
 Chatterino_userID = "{{        promptStringOnce . "Chatterino_userID"        "Chatterino - userID "        }}"
 Chatterino_clientID = "{{      promptStringOnce . "Chatterino_clientID"      "Chatterino - clientID "      }}"
@@ -28,4 +36,6 @@ Chatterino_Notifications = '{{ promptStringOnce . "Chatterino_Notifications" "Ch
 {{- else }}
 Espanso_emailTeam = "{{        promptStringOnce . "Espanso_emailTeam"        "Espanso - emailTeam "        }}"
 Git_credential = "{{           promptStringOnce . "Git_credential"           "Git - credential "           }}"
+LightBulb_Latitude = "{{       promptStringOnce . "LightBulb_Latitude"       "LightBulb - Latitude "       }}"
+LightBulb_Longitude = "{{      promptStringOnce . "LightBulb_Longitude"      "LightBulb - Longitude "      }}"
 {{- end }}

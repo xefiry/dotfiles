@@ -1,15 +1,15 @@
 README.md
-Scripts/
 
-{{ if eq .chezmoi.hostname "xefiry-pc" }} # work only
+{{ if eq .chezmoi.hostname "home-pc" }}
 
 .unison/homedir.prf
-AppData/Roaming/espanso/match/work.yml
-AppData/Roaming/espanso/match/sql_work.yml
+.wslconfig
+AppData/
+Documents/
 
-{{ else }} # home only
+{{ else }}
 
-AppData/Roaming/Chatterino2/
-AppData/Roaming/Mp3tag/
+.config/
+.var/
 
 {{ end }}
