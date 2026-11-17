@@ -48,6 +48,12 @@ Launch_Media:: Run('pwsh.exe -Command "start_freetube"')
 +T:: toggle_stay_on_top()
 #HotIf
 
+; Win + PageUp : Maximize active window (or restore it if already maximized)
+#PgUp:: MaximizeActiveWindow()
+
+; Win + PageDown : Minimize active window
+#PgDn:: MinimizeActiveWindow()
+
 ; Win + Numpad / Ctrl + Win + Numpad : MoveActiveWindow (see function documentation)
 loop 9 {
     if A_Index != 5 { ; don't initialize for Numpad5
@@ -128,6 +134,18 @@ MonitorGetActive(win) {
             return A_Index
         }
     }
+}
+
+MaximizeActiveWindow() {
+    if WinGetMinMax("A") {
+        WinRestore "A"
+    } else {
+        WinMaximize "A"
+    }
+}
+
+MinimizeActiveWindow() {
+    WinMinimize "A"
 }
 
 /*
