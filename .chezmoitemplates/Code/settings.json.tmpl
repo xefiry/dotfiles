@@ -50,6 +50,11 @@ Extensions list :
     "powershell.enableProfileLoading": true,
     "powershell.integratedConsole.showOnStartup": false,
     "terminal.external.windowsExec": "pwsh.exe",
+    "terminal.external.linuxExec": "flatpak-spawn --host konsole",
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.integrated.profiles.linux": { 
+        "fish": { "path": "/run/host/usr/bin/fish" } 
+    },
     "terminal.integrated.initialHint": false,
 
     // Editor settings
