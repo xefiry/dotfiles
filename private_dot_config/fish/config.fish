@@ -12,3 +12,34 @@ end
 function py -d "Alias for python3"
   python3
 end
+
+function mpv -d "Alias for 'flatpak run io.mpv.Mpv'"
+  flatpak run io.mpv.Mpv $argv
+end
+
+function codium -d "Alias for 'com.vscodium.codium'"
+  flatpak run com.vscodium.codium $argv
+
+function freetube -d "Start FreeTube with unison sync"
+  if pgrep -x freetube >/dev/null
+    echo "Freetube is already running"
+    return 1
+  end
+
+  unison -ui text freetube; and \
+  flatpak run io.freetubeapp.FreeTube; and \
+  unison -ui text freetube
+end
+end
+
+function mpv_stream -a streamer -d "Watch Twitch stream using mpv and streamlink"
+  if test (count $argv) -eq 0
+    echo "Missing argument"
+    return 1
+  else if test (count $argv) -gt 1
+    echo "Too many arguments"
+    return 1
+  end
+
+  uvx streamlink -p "flatpak" -a "run io.mpv.Mpv" "https://www.twitch.tv/$streamer" best
+end

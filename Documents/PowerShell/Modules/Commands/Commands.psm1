@@ -154,9 +154,8 @@ function mpv_stream {
     [Parameter(Mandatory)]
     [string]$streamer
   )
-  $quality = if ($env:ComputerName -eq 'PS-0568') { 'worst' } else { 'best' }
 
-  uvx streamlink -p mpv "https://www.twitch.tv/$streamer" "$quality"
+  uvx streamlink -p mpv "https://www.twitch.tv/$streamer" worst
 }
 
 <#
