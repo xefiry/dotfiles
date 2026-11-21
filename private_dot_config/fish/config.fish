@@ -10,7 +10,7 @@ function firefox_tools -d "Run firefox_tool from PythonScripts"
 end
 
 function py -d "Alias for python3"
-  python3
+  python3 $argv
 end
 
 function mpv -d "Alias for 'flatpak run io.mpv.Mpv'"
