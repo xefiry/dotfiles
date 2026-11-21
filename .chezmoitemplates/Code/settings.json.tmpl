@@ -7,7 +7,7 @@ Extensions list :
     Markdown   : Markdown All in One, markdownlint
     Python     : Python, autoDocstring, Ruff, Flake8
     Rust       : rust-analyzer, crates
-    Scripts    : ShellCheck, AHK++, PowerShell
+    Scripts    : Fish, ShellCheck, AHK++, PowerShell
     Others     : Even Better TOML, Rainbow CSV, XML, LaTeX Workshop
     Theme      : Material Icon Theme
     Misc       : Unique Lines, bookmarks, Better Todo Tree, Git Graph, Highlight Bad Chars
@@ -58,6 +58,7 @@ Extensions list :
     "editor.fontLigatures": true,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [80, 120],
+    "editor.selectionClipboard": false,
     "editor.tabSize": 2,
 
     // Workbench settings
@@ -85,6 +86,9 @@ Extensions list :
     "highlight-bad-chars.additionalUnicodeChars": [ "’" ],
 
     ///// Language specific settings /////
+    {{- if eq .chezmoi.hostname "home-pc" }}
+    "fish.path.fish": "/run/host/usr/bin/fish",
+    {{- end }}
 
     "markdown.preview.scrollEditorWithPreview": false,
     "[markdown]": {
@@ -113,6 +117,10 @@ Extensions list :
     "flake8.args": [ "--max-line-length=120" ],
     "python.analysis.autoFormatStrings": true,
     "python.analysis.typeCheckingMode": "strict",
+    {{- if eq .chezmoi.hostname "home-pc" }}
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+
+    {{- end }}
 
     "xml.server.preferBinary": true,
     "xml.format.maxLineWidth": 200
