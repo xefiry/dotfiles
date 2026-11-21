@@ -19,6 +19,7 @@ end
 
 function codium -d "Alias for 'com.vscodium.codium'"
   flatpak run com.vscodium.codium $argv
+end
 
 function freetube -d "Start FreeTube with unison sync"
   if pgrep -x freetube >/dev/null
@@ -29,7 +30,6 @@ function freetube -d "Start FreeTube with unison sync"
   unison -ui text freetube; and \
   flatpak run io.freetubeapp.FreeTube; and \
   unison -ui text freetube
-end
 end
 
 function mpv_stream -a streamer -d "Watch Twitch stream using mpv and streamlink"
