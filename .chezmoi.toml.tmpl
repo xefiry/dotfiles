@@ -2,10 +2,12 @@
 [diff]
 command = "flatpak"
 args = ["run", "org.gnome.meld", "--diff", "{{- "{{ .Destination }}" -}}", "{{- "{{ .Target }}" -}}"]
+pager = ""
 
 [merge]
 command = "flatpak"
 args = ["run", "org.gnome.meld", "--diff", "{{- "{{ .Destination }}" -}}", "{{- "{{ .Source }}" -}}", "{{- "{{ .Target }}" -}}"]
+pager = ""
 {{- else -}}
 [cd]
 command = "pwsh"
