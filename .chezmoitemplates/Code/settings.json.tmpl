@@ -50,10 +50,14 @@ Extensions list :
     "powershell.enableProfileLoading": true,
     "powershell.integratedConsole.showOnStartup": false,
     "terminal.external.windowsExec": "pwsh.exe",
-    "terminal.external.linuxExec": "flatpak-spawn --host konsole",
+    "terminal.external.linuxExec": "host-spawn konsole",
     "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.profiles.linux": { 
-        "fish": { "path": "/run/host/usr/bin/fish" } 
+        "fish": { 
+            "path": "host-spawn",
+            "args": ["fish"],
+            "overrideName": true
+        } 
     },
     "terminal.integrated.initialHint": false,
 
@@ -122,10 +126,6 @@ Extensions list :
     "flake8.args": [ "--max-line-length=120" ],
     "python.analysis.autoFormatStrings": true,
     "python.analysis.typeCheckingMode": "strict",
-    {{- if eq .chezmoi.hostname "home-pc" }}
-    "python.defaultInterpreterPath": "/usr/bin/python3",
-
-    {{- end }}
 
     "xml.server.preferBinary": true,
     "xml.format.maxLineWidth": 200
