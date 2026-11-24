@@ -13,7 +13,7 @@ function get_password_dates {
   Get BOSS parameters
 #>
 function get_boss_params {
-  uv run --directory $GIT_SCRIPTS get_boss_params.py
+  uv run "$GIT_SCRIPTS/get_boss_params.py"
 }
 
 <#
@@ -21,7 +21,7 @@ function get_boss_params {
   Generate a password for BOSS
 #>
 function generate_password {
-  uv run --directory $GIT_SCRIPTS generate_password.py $args
+  uv run "$GIT_SCRIPTS/generate_password.py" $args
 }
 
 <#
@@ -38,7 +38,7 @@ function open_branch_ticket {
   Update GIT sources
 #>
 function GIT_update {
-  uv run --directory $GIT_SCRIPTS git_update.py
+  uv run "$GIT_SCRIPTS/git_update.py"
 }
 
 <#
@@ -46,7 +46,7 @@ function GIT_update {
   Rebase GIT repo
 #>
 function GIT_auto_rebase {
-  uv run --directory $GIT_SCRIPTS git_auto_rebase.py $args
+  uv run "$GIT_SCRIPTS/git_auto_rebase.py" $args
 }
 
 <#
@@ -54,7 +54,7 @@ function GIT_auto_rebase {
   Check status of TNS names, directories, sites and API availability
 #>
 function check_status {
-  uv run --directory $GIT_SCRIPTS check_status.py
+  uv run "$GIT_SCRIPTS/check_status.py"
 }
 
 <#
