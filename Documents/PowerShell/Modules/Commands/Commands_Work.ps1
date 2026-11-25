@@ -54,7 +54,7 @@ function GIT_auto_rebase {
   Check status of TNS names, directories, sites and API availability
 #>
 function check_status {
-  uv run "$GIT_SCRIPTS/check_status.py"
+  uv run --directory $GIT_SCRIPTS check_status.py
 }
 
 <#
