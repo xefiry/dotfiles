@@ -94,11 +94,8 @@ user_pref("dom.security.https_only_mode", true);
 user_pref("network.IDN_show_punycode", true);
 
 // DNS over HTTPS (0 = Default, 2 = TRR-first, 3 = TRR-only, 5 = Disabled)
-user_pref("network.trr.mode", 2);
-// Set custom provider for DNS over HTTPS (quad 9)
-user_pref("network.trr.uri", "https://dns.quad9.net/dns-query");
-user_pref("network.trr.custom_uri", "https://dns.quad9.net/dns-query");
-user_pref("network.trr.bootstrapAddress", "9.9.9.9");
+user_pref("network.trr.mode", 3);
+user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 
 
 //---------- Things to disable ----------//
